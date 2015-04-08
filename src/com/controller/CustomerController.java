@@ -56,5 +56,4 @@ public class CustomerController{
 	public String changePassword() throws Exception {
 		return "ChangePassword";
 	}
-	
 }

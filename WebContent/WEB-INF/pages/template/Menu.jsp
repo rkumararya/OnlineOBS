@@ -47,6 +47,15 @@
         </div>
     </li>
     <li class="separator"></li>
+    <li><a href="./Restaurants" class="arrow">Restaurants</a>
+        <!-- <div class="drop decor3_2" style="width: 640px;">
+            <div class='left'>
+                <b>BRANCHES</b>
+            </div>
+           
+        </div> -->
+    </li>
+    <li class="separator"></li>
     <li><a href="#Horizontal-Menus" class="arrow">Medical</a>
         <div class="drop decor3_2" style="width: 640px;">
             <div class='left'>
