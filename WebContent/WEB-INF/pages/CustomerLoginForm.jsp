@@ -58,6 +58,7 @@
 	<a href = "ForgotPassword"><i>Forgot Password?</i></a>
 	<a href = "register"><i>New User?</i></a>
 	<a href = "maps"><i>Goto Maps</i></a>
+	<a href = "Restaurants"><i>Restaurants</i></a>
 	<br/><br/><br/><br/><br/>
 	<!-- <div class="copyright" align="left">Copyright &copy; 2014. All Rights Reserved</div> -->
 	<div class="footer-company-info">

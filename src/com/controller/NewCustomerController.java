@@ -42,6 +42,14 @@ public class NewCustomerController {
 		return "RenderMap";
 	}
 	
+	@RequestMapping(value="/Restaurants", method = RequestMethod.GET)
+	public String searchRestaurants(ModelMap model) throws Exception {
+		/*NewCustomer newCust = new NewCustomer();*/
+		model.addAttribute("", "");
+		return "Restaurants";
+	}
+	
+
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String proceedRegistration(@Valid @ModelAttribute("registrationForm") NewCustomer newCust, BindingResult result, Model model) throws Exception {
