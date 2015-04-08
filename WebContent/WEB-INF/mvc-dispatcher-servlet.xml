@@ -1,0 +1,80 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ 		xmlns:beans="http://www.springframework.org/schema/beans"
+ 		xmlns:context="http://www.springframework.org/schema/context"
+ 		xmlns:mvc="http://www.springframework.org/schema/mvc"
+ 		xsi:schemaLocation="http://www.springframework.org/schema/beans
+ 				http://www.springframework.org/schema/beans/spring-beans.xsd
+ 				http://www.springframework.org/schema/mvc
+ 				http://www.springframework.org/schema/mvc/spring-mvc.xsd
+ 				http://www.springframework.org/schema/context
+ 				http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <!-- Scans for all the Controller class within the package -->
+        <context:component-scan base-package="com.controller"/>
+        
+        <context:annotation-config />
+        
+        <!-- Notifies that the config is defined for annotations -->
+        <mvc:annotation-driven/>
+        
+        <mvc:default-servlet-handler />
+        
+        <!-- Declares the mappings for Resources -->
+        <!-- <mvc:resources mapping="/resources/**" location="/resources/"/> -->
+        <!-- <mvc:resources mapping="/images/**" location="/images/" />  -->
+       <!--  <mvc:resources mapping="/resources/**" location="/resources/" /> -->
+          
+        <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+ 		<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+ 		
+ 		<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" >
+			<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+		</bean>        
+ 	    
+        <!-- Register the Resource Bundle (message.properties)-->
+        <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+			<property name="basename" value="/WEB-INF/messages" />
+		</bean> 
+		
+		
+		<!-- Bean for the View Resolver -->
+		<bean id="viewResolver" class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="prefix">
+				<value>/WEB-INF/pages/</value>
+			</property>
+			<property name="suffix">
+				<value>.jsp</value>
+			</property>
+		</bean>
+		
+        <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+			<property name="host" value="smtp.gmail.com" />
+			<property name="port" value="465" />
+			<property name="username" value="test@gmail.com" />
+			<property name="password" value="password" />
+			<property name="javaMailProperties">
+				<props>
+					<prop key="mail.transport.protocol">smtp</prop>
+					<prop key="mail.smtp.auth">true</prop>
+					<prop key="mail.smtp.starttls.enable">true</prop>
+				</props>
+			</property>
+		</bean>
+		
+		<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+			<property name="exceptionMappings">
+				<props>
+					<prop key="java.lang.Exception">Error</prop>
+				</props>
+			</property>
+		</bean>
+		
+		<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" >
+			<property name="definitions">
+				<list>
+					<value>/WEB-INF/tiles-def.xml</value>
+				</list>
+			</property>
+		</bean>
+</beans>
