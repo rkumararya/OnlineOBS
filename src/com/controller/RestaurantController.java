@@ -18,7 +18,8 @@ public class RestaurantController {
 
 	@RequestMapping(value="/Restaurants", method = RequestMethod.GET)
 	public String searchRestaurants(ModelMap model) throws Exception {
-		RestaurantModel restaurantModel = new RestaurantModel();
+		//RestaurantModel restaurantModel = new RestaurantModel();
+		//model.addAttribute("restaurant_name", "Kill Dill Chilly");
 		model.addAttribute("", "");
 		return "Restaurants";
 	}
